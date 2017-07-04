@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Form from './components/form';
 import List from './components/list';
 import {Row} from 'react-bootstrap';
-import {fetchData} from './api/financeAPI';
+import financeAPI from './api/financeAPI';
 import './App.css';
 
 class App extends Component {
@@ -25,10 +25,14 @@ class App extends Component {
   handleSubmit(e) {
     e.preventDefault();
     const state = this.state;
-    
-    const resultsData = fetchData(state.symbol);
-    // console.log(resultsData);
-    const queryAsString = `${state.symbol} / ${state.qty} * ${state.price} = total / ${state.date}`
+
+    financeAPI.getData(state.symbol).then(function(data) {
+      console.log(data);
+    }, function(e) {
+      console.log(e);
+    });
+
+    const queryAsString = `${state.symbol} / ${state.qty} * ${state.price} = total / ${state.date}`;
     // const = fetchDate
     // let queries = this.state.queries;
     // queries.push(query)
@@ -56,7 +60,7 @@ class App extends Component {
           </div>
         </Row>
         <Row>
-          <Form 
+          <Form
             onSubmit={this.handleSubmit}
             price={this.state.price}
             qty={this.state.qty}

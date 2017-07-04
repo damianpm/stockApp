@@ -3,16 +3,8 @@ var axios = require('axios');
 const BASE_URL = 'https://finance.google.com/finance/info?q=NASDAQ:';
 
 module.exports = {
-  fetchData: (query) => {
-    const requestUrl = `${BASE_URL}${query}`;
-    let myRequest =axios.get(requestUrl);
-    myRequest.then(function(data){
-      console.log('---------------');
-     console.log(data);
-    });
-    // return axios.get(requestUrl).then(res => res);
+  getData: query => {
+    var requestUrl = `${BASE_URL}${query}`;
+    return axios.get(requestUrl).then(res => res.data, res => {throw new Error('Error!')});
   }
 }
-
-
-
