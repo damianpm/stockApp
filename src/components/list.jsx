@@ -6,11 +6,11 @@ class List extends Component {
 
   render() {
     return (
-      <ul>
+      <div>
         {this.props.queries.map((query) => {
-          return <ElementList query={query}/>;
+          return <ElementList queryAsString={query.queryAsString} currentPrice={query.currentPrice} profit={query.profitValue} win={query.win}/>;
         })}
-      </ul>
+      </div>
     );
   }
 }

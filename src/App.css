@@ -1,17 +1,8 @@
-.App {
+body {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-}
-
-.App-intro {
-  font-size: large;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
 
 h2 {
@@ -19,5 +10,35 @@ h2 {
 }
 
 form input {
-  margin:0 5px;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+input[type="submit"] {
+  min-width: 50px;
+}
+
+div.react-datepicker__input-container {
+  width: 100%;
+}
+
+div.react-datepicker__input-container input {
+  width: 100%;
+}
+
+.win {
+  text-align: left;
+  font-size: 2em;
+  color: green;
+}
+
+.loose {
+  text-align: left;
+  font-size: 2em;
+  color: red;
+}
+
+.results {
+  padding: 20px;
+  text-align: left;
 }
