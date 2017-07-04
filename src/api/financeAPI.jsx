@@ -7,6 +7,7 @@ module.exports = {
     const requestUrl = `${BASE_URL}${query}`;
     let myRequest =axios.get(requestUrl);
     myRequest.then(function(data){
+      console.log('---------------');
      console.log(data);
     });
     // return axios.get(requestUrl).then(res => res);
