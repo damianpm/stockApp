@@ -1,6 +1,6 @@
 var axios = require('axios');
 //http://finance.google.com/finance/info?q=NASDAQ:AAPL,NASDAQ:GOOG,NASDAQ:V
-const BASE_URL = 'http://finance.google.com/finance/info?q=NASDAQ:';
+const BASE_URL = 'https://finance.google.com/finance/info?q=NASDAQ:';
 
 module.exports = {
   fetchData: (query) => {
