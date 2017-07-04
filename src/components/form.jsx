@@ -1,21 +1,15 @@
 import React, {Component} from 'react';
-import Symbol from './form/symbol';
-import Price from './form/price';
-import Quantity from './form/quantity';
-import Date from './form/date';
-// import SubmitButton from './form/submitButton';
 
 class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.props.handleSubmit} >
-        <Symbol/>
-        <Price/>
-        <Quantity/>
-        <Date/>
-        {/* <SubmitButton onClick={this.props.handleAddElement}/> */}
-        <input type="submit" value='+'/>
+      <form onSubmit={e => this.props.onSubmit(e)} >
+        <input type="text" value={this.props.symbol} onChange={this.props.onSymbolChange}/>
+        <input type="number" value={this.props.price} onChange={this.props.onPriceChange}/>
+        <input type="number" value={this.props.qty} onChange={this.props.onQtyChange}/>
+        <input type="text" value={this.props.date} onChange={this.props.onDateChange}/>
+        <button>+</button>
       </form>
     );
   }

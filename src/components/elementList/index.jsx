@@ -5,7 +5,7 @@ class ElementList extends Component {
   render() {
     return (
       <li>
-        {this.props.name}
+        {this.props.query}
       </li>
     );
   }

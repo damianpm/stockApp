@@ -17,3 +17,7 @@
 h2 {
   font-weight: normal;
 }
+
+form input {
+  margin:0 5px;
+}

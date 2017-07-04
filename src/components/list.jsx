@@ -7,8 +7,8 @@ class List extends Component {
   render() {
     return (
       <ul>
-        {this.props.elements.map((elem) => {
-          return <ElementList key={elem.name} name={elem.name}/>;
+        {this.props.queries.map((query) => {
+          return <ElementList query={query}/>;
         })}
       </ul>
     );
