@@ -3,6 +3,7 @@ import Form from './components/form';
 import List from './components/list';
 import {Row, Col} from 'react-bootstrap';
 import financeAPI from './api/financeAPI';
+import {loadState, saveState} from './api/localStorage'
 import moment from 'moment';
 import './App.css';
 
@@ -15,16 +16,19 @@ class App extends Component {
       boughtPrice: 0,
       currentPrice: 0,
       date: moment(),
-      symbol: '',
-      keyIndex: 0
+      symbol: ''
     };
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleSymbolChange = this.handleSymbolChange.bind(this);
     this.handlePriceChange = this.handlePriceChange.bind(this);
     this.handleQtyChange = this.handleQtyChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
   }
-
+  componentDidMount(){
+    let localQueries = loadState();
+    this.setState({queries: localQueries});
+  }
   updateList() {
     const state = this.state;
     const priceFixed = Number(state.boughtPrice).toFixed(2);
@@ -40,7 +44,10 @@ class App extends Component {
     updatedQueries.push({queryAsString, profitValue, currentPrice: state.currentPrice, win});
     this.setState({
       queries: updatedQueries
-    }, this.clearForm);
+    }, ()=>{
+      this.clearForm();
+      saveState(this.state.queries);
+    });
   }
 
   handleSubmit(e) {

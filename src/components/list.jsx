@@ -8,7 +8,7 @@ class List extends Component {
     return (
       <div>
         {this.props.queries.map((query) => {
-          return <ElementList queryAsString={query.queryAsString} currentPrice={query.currentPrice} profit={query.profitValue} win={query.win}/>;
+          return <ElementList queryAsString={query.queryAsString} currentPrice={query.currentPrice} profit={query.profitValue} win={query.win} />;
         })}
       </div>
     );

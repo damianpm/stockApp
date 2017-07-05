@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import NumberFormat from 'react-number-format';
 
 class ElementList extends Component {
 
@@ -11,7 +12,7 @@ class ElementList extends Component {
           : 'loose'}>
           <span>{this.props.currentPrice}</span>
           /
-          <span>{this.props.profit}</span>
+          <span><NumberFormat value={this.props.profit} displayType={'text'} thousandSeparator={true} prefix={'$'}/></span>
         </div>
       </div>
     );
